@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <title>API Documentation</title>
+</head>
+<body>
+    <h1>API Documentation</h1>
+    <article>
+        <h2>Data Models</h2>
+        <img src='https://i.imgur.com/kpTfFrH.png' width=60% heigh=80%>
+    </article>
+    <article>
+        <h2>Restful Routes</h2>
+        <h3>Organizations</h3>
+            <table class="table table-hover table-bordered">
+            <thead> 
+                <tr class="something">
+                    <th>Name</th>
+                    <th>Path</th>
+                    <th>HTTP Verb</th>
+                    <th>Purpose</th>
+                    <th>Mongoose Method</th>
+                    <th>Future Todos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="something">
+                    <td>Index</td>
+                    <td>/api/organizations</td>
+                    <td>GET</td>
+                    <td>List all organizations</td>
+                    <td>Organization.find()</td>
+                    <td>None</td>
+                </tr>
+                <tr class="success">
+                    <td>New</td>
+                    <td>/api/organizations/new</td>
+                    <td>GET</td>
+                    <td>Show a new organization create account form</td>
+                    <td>N/A</td>
+                    <td>Design a organizations/new.ejs file</td>
+                </tr>
+                <tr class="success">
+                    <td>Create</td>
+                    <td>/api/organizations</td>
+                    <td>POST</td>
+                    <td>Create a new organization</td>
+                    <td>Organization.create()</td>
+                    <td>Function: Make sure to then direct to the log in page</td>
+                </tr>
+                <tr class="info">
+                    <td>Show</td>
+                    <td>/api/organizations/:id</td>
+                    <td>GET</td>
+                    <td>Show info about one specific organization</td>
+                    <td>Organization.findById()</td>
+                    <td>Web Deisgn: a profile page that have tabs that provide direction to the organization's user & request page. Can later include administrators</td>
+                </tr>
+                <tr class="warning">
+                    <td>Edit</td>
+                    <td>/api/organizations/:id/edit</td>
+                    <td>GET</td>
+                    <td>Show edit form for the specific organization</td>
+                    <td>Organization.findById()</td>
+                    <td>Web Design: create a organizations/edit.ejs file.</td>
+
+                </tr>
+                <tr class="warning">
+                    <td>Update</td>
+                    <td>/api/organizations/:id</td>
+                    <td>PUT</td>
+                    <td>Update a specific organization, then redirect to organization profile page</td>
+                    <td>Organization.findByIdAndUpdate()</td>
+                    <td>None</td>
+                </tr>
+                <tr class="danger">
+                    <td>Delete</td>
+                    <td>/api/organizations/:id</td>
+                    <td>DELETE</td>
+                    <td>Delete a particular organization, then redirect to log in page</td>
+                    <td>Organization.findByIdAndRemove()</td>
+                    <td>None</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+    <article>
+        <h3>Users</h3>
+        <table class="table table-hover table-bordered">
+            <thead> 
+                <tr class="something">
+                    <th>Name</th>
+                    <th>Path</th>
+                    <th>HTTP Verb</th>
+                    <th>Purpose</th>
+                    <th>Mongoose Method</th>
+                    <th>Future Todos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="something">
+                    <td>Index</td>
+                    <td>/api/users?organization=(specific organizationId)></organization.id></td>
+                    <td>GET</td>
+                    <td>List all the users in a specific organization</td>
+                    <td>User.find()</td>
+                    <td>Function: implement oAuth</td>
+                </tr>
+                <tr class="success">
+                    <td>New</td>
+                    <td>/api/users/new</td>
+                    <td>GET</td>
+                    <td>Show the new user's create account page</td>
+                    <td>N/A</td>
+                    <td>Design a users/new.ejs file</td>
+                </tr>
+                <tr class="success">
+                    <td>Create</td>
+                    <td>/api/users?organization=(specific organizationId)</td>
+                    <td>POST</td>
+                    <td>Create a new user</td>
+                    <td>User.create()</td>
+                    <td>Function: Make sure to direct to the log in page</td>
+                </tr>
+                <tr class="info">
+                    <td>Show</td>
+                    <td>/api/users/:id</td>
+                    <td>GET</td>
+                    <td>Show info about one specific user</td>
+                    <td>User.findById()</td>
+                    <td>Later make sure that the user who is doing the search is from the same organization as the user being searched</td>
+                </tr>
+                <tr class="info">
+                    <td>RequestHistory</td>
+                    <td>/api/users/:id/requests</td>
+                    <td>GET</td>
+                    <td>Show the request history of one specific user</td>
+                    <td>Request.find()</td>
+                    <td>None</td>
+                </tr>
+                <tr class="warning">
+                    <td>Edit</td>
+                    <td>/api/users/:id/edit</td>
+                    <td>GET</td>
+                    <td>Show edit form for the specific user</td>
+                    <td>User.findById()</td>
+                    <td>Web Design: create a users/edit.ejs file.</td>
+
+                </tr>
+                <tr class="warning">
+                    <td>Update</td>
+                    <td>/api/users/:id</td>
+                    <td>PUT</td>
+                    <td>Update a specific user, then redirect to organization profile page</td>
+                    <td>User.findByIdAndUpdate()</td>
+                    <td>None</td>
+                </tr>
+                <tr class="danger">
+                    <td>Delete</td>
+                    <td>/api/users/:id</td>
+                    <td>DELETE</td>
+                    <td>Delete a particular user, then redirect to log in page</td>
+                    <td>User.findByIdAndRemove()</td>
+                    <td>None</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+    <article>
+        <h3>Requests</h3>
+        <table class="table table-hover table-bordered">
+            <thead> 
+                <tr class="something">
+                    <th>Name</th>
+                    <th>Path</th>
+                    <th>HTTP Verb</th>
+                    <th>Purpose</th>
+                    <th>Mongoose Method</th>
+                    <th>Future Todos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="something">
+                    <td>Index</td>
+                    <td>/api/requests?organization=(specific organizationId)></organization.id></td>
+                    <td>GET</td>
+                    <td>List all the requests in a specific organization</td>
+                    <td>Request.find()</td>
+                    <td>Function: implement oAuth</td>
+                </tr>
+                <tr class="success">
+                    <td>New</td>
+                    <td>/api/requests/new</td>
+                    <td>GET</td>
+                    <td>Show the new request form</td>
+                    <td>N/A</td>
+                    <td>Design a requests/new.ejs file</td>
+                </tr>
+                <tr class="success">
+                    <td>Create</td>
+                    <td>/api/requests?organization=(specific organizationID)&user=(specific userID)</td>
+                    <td>POST</td>
+                    <td>Create a new request</td>
+                    <td>Request.create()</td>
+                    <td>Function: Make sure to redirect to requests/show page</td>
+                </tr>
+                <tr class="info">
+                    <td>Show</td>
+                    <td>/api/requests/:id</td>
+                    <td>GET</td>
+                    <td>Show info about one specific request</td>
+                    <td>Requests.findById()</td>
+                    <td>None</td>
+                </tr>
+                <tr class="warning">
+                    <td>Edit</td>
+                    <td>/api/requests/:id/edit</td>
+                    <td>GET</td>
+                    <td>Show edit form for the specific request</td>
+                    <td>Requests.findById()</td>
+                    <td>Web Design: create a requests/edit.ejs file.</td>
+                </tr>
+                <tr class="warning">
+                    <td>Update</td>
+                    <td>/api/requests/:id</td>
+                    <td>PUT</td>
+                    <td>Update a specific request, then redirect to requests/show or requests/index</td>
+                    <td>Requests.findByIdAndUpdate()</td>
+                    <td>Function: need to think about how to send an email after someone accept/confirm/cancel a request, and need to consider for multiple users. Also, how to prevent for (1) two drivers in a same request (2) users signed up when seats are full</td>
+                </tr>
+                <tr class="danger">
+                    <td>Delete</td>
+                    <td>/api/requests/:id</td>
+                    <td>DELETE</td>
+                    <td>Delete a particular request, then redirect to requests/index</td>
+                    <td>Request.findByIdAndRemove()</td>
+                    <td>Function: Need to add a redirection. </td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+</body>
+</html>
