@@ -25,6 +25,8 @@ const orgList = [
 const userList = [
     {
         name: "drive1",
+        gender: 'female',
+        employee_id: '2',
         driver: true,
         car: [{
             model: "Civic",
@@ -35,18 +37,25 @@ const userList = [
           }],
         email: "yvonnewjy@hotmail.com",
         phoneNum: "4162342222",
+        password: "1234567890"
     },
     {
         name: "rider1",
+        gender: 'male',
+        employee_id: '3',
         driver: false,
         email: "xiaoxiong@hotmail.com",
-        phoneNum: "6479994444"
+        phoneNum: "6479994444",
+        password: "1234567890"
     },
     {
         name: "rider2",
+        gender: 'have not decided',
+        employee_id: '1',
         driver: false,
         email: "yyyyyyyy@hotmail.com",
-        phoneNum: "6479994424"
+        phoneNum: "6479994424",
+        password: "1234567890"
     }
 ]
 
