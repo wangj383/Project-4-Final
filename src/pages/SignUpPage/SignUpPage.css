@@ -4,4 +4,31 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
-  }
+}
+
+.buttonstyle{
+  display: inline-block;
+  margin: 10px auto;
+  margin-right: 10px;
+  border: none;
+  color: white;
+  background-color: #647DFF;
+  border-radius: 2px;
+  font-size: 15px;
+}
+
+.lottie {
+  display: flex;
+}
+
+
+header {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 17px;
+  /* margin-left: 35px; */
+  /* margin-right: 35px; */
+  font-family: Ozxgen, sans-serif;
+  font-size: 30px;
+  border-bottom: 2px solid rgb(36, 133, 197);
+}

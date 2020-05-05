@@ -4,16 +4,16 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 
 module.exports = {
+    signup,
+    login,
     index,
     show,
-    new: newUser,
-    create,
+    // new: newUser,
+    // create,
     edit,
     update,
     delete: deleteUser,
     requestHistory,
-    signup,
-    login
 };
 
 async function signup(req,res) {
@@ -80,26 +80,26 @@ function show(req, res) {
         res.json(user)
     })
 }
-// Have not yet design the new.ejs
-function newUser(req,res) {
-    // res.render('users/new')
-}
+// // Have not yet design the new.ejs
+// function newUser(req,res) {
+//     // res.render('users/new')
+// }
 
-// create account
-function create(req,res) {
-    // This next line will be changed after oAuth is added
-    req.body.organization = req.query.organization
-    User.create(req.body)
-    .then(function(newUser){
-        res.json(newUser)
-    })
-    .catch(function(err){
-        if (err.name === 'ValidationError') {
-            return res.status(400).json({ error: 'Invalid Inputs' });
-        }
-        res.status(500).json({ error: 'Could not create user' });
-    })
-}
+// // create account
+// function create(req,res) {
+//     // This next line will be changed after oAuth is added
+//     req.body.organization = req.query.organization
+//     User.create(req.body)
+//     .then(function(newUser){
+//         res.json(newUser)
+//     })
+//     .catch(function(err){
+//         if (err.name === 'ValidationError') {
+//             return res.status(400).json({ error: 'Invalid Inputs' });
+//         }
+//         res.status(500).json({ error: 'Could not create user' });
+//     })
+// }
 
 function edit(req,res){
     // let user= User.findById(req.params.id)

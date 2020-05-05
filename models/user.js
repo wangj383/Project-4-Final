@@ -23,7 +23,7 @@ const userSchema = new Schema({
   car: [carSchema],
   email: {type: String, require: true},
   phoneNum: {type: String, require: true},
-  password: String,
+  password: {type: String, require: true},
 }, {
   timestamps: true
 });

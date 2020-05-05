@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import userService from '../../utils/userService';
+import organizationService from '../../utils/organizationService';
 
-class SignupForm extends Component {
+class OrganizationSignupForm extends Component {
     state = {
         name: '',
-        employee_id: '',
-        gender: '',
         email: '',
         phoneNum: '',
+        address: '',
         password: '',
         passwordConf: '',
-        driver:false,
     };
 
     handleChange = (e) => {
@@ -21,17 +19,11 @@ class SignupForm extends Component {
         });
     };
 
-    handleDriverChange = (event) =>{
-        this.setState({
-            driver: event.target.checked
-        })
-    }
-
     handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await userService.signup(this.state);
-            this.props.handleSignupOrLogin();
+            await organizationService.signup(this.state);
+            this.props.orghandleSignupOrLogin();
             this.props.history.push('/');
         } catch (err) {
             this.props.updateMessage(err.message);
@@ -54,37 +46,13 @@ class SignupForm extends Component {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Full Name"
+                                placeholder="Organization Name"
                                 value={this.state.name}
                                 name="name"
                                 onChange={this.handleChange}
                             />
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-12">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Employee ID"
-                                value={this.state.employee_id}
-                                name="employee_id"
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>                   
-                    <div className="form-group">
-                        <div className="col-sm-12">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Gender"
-                                value={this.state.gender}
-                                name="gender"
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>                     
+                    </div>                                    
                     <div className="form-group">
                         <div className="col-sm-12">
                             <input
@@ -132,20 +100,6 @@ class SignupForm extends Component {
                                 onChange={this.handleChange}
                             />
                         </div>
-                    </div> 
-                    <div className="form-group">
-                        <div className="col-sm-12">
-                            <label>
-                                Want to be a driver? &nbsp;
-                            <input
-                                type="checkbox"
-                                
-                                checked={this.state.driver}
-                                name="driver"
-                                onChange={this.handleDriverChange}
-                            />
-                            </label>
-                        </div>
                     </div>           
                     <div className="form-group">
                         <div className="col-sm-12 text-center">
@@ -162,4 +116,4 @@ class SignupForm extends Component {
     }
 }
 
-export default SignupForm;
+export default OrganizationSignupForm;

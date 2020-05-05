@@ -22,16 +22,27 @@ const NavBar = (props) => {
                 Log Out
             </Link>     
         </div>
-    ) : (
-        <div>
-            <Link to="/signup" className="NavBar-link">
-                Sign Up
-            </Link>
-            &nbsp;
-            <Link to="/login" className="NavBar-link">
-                Log In
-            </Link>
-        </div>
+    ) :  (props.organization ? (
+            <div>
+                <Link to="/organization/account" className="NavBar-link">
+                    Organization Account
+                </Link>
+                &nbsp;
+                <Link to="" className="NavBar-link" onClick={props.orghandleLogout}>
+                    Log Out
+                </Link>   
+            </div>
+        ):(
+            <div>
+                <Link to="/signup" className="NavBar-link">
+                    Sign Up
+                </Link>
+                &nbsp;
+                <Link to="/login" className="NavBar-link">
+                    Log In
+                </Link>
+            </div>
+        )
     )
 
     return (

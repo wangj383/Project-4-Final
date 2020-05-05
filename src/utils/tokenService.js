@@ -25,6 +25,11 @@ function getUserFromToken() {
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
 
+function getOrgFromToken() {
+  const token = getToken();
+  return token ? JSON.parse(atob(token.split('.')[1])).organization : null;
+}
+
 function removeToken() {
   localStorage.removeItem(STORAGE_KEY);
 }
@@ -33,5 +38,6 @@ export default {
   setToken,
   getToken,
   getUserFromToken,
+  getOrgFromToken,
   removeToken,
 };
