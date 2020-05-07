@@ -7,13 +7,15 @@ const HomePage = (props) => {
   return(
   <div className='HomePage'>
     <div className="container2">
-    <article className="card"><span className='card-header'>Carpooling with Colleagues </span>
-    <br />
-    <p>A great way to save commuting costs while expanding social connections</p>
-    </article>
     <img src={phone} alt="WebsiteOnPhone" ></img>
+    <article className="card article homearticle"><span className='card-header'>Carpooling with Colleagues </span> 
+    <p>to save commuting costs while expanding social connections</p>
+    </article>
     <div>
-      <button><Link to='/signup' className='NavBar-link'>Join Now</Link></button>
+      <button  
+        className='btn' 
+        style={{backgroundColor: "#fb8c00"}}>
+          <Link to='/signup' className='NavBar-link'>Join Now</Link></button>
     </div>
     </div>
   </div>

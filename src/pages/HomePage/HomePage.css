@@ -1,5 +1,5 @@
 img {
-    width: 50vw;
+    width: 60vw;
     height:auto;
 }
 
@@ -21,18 +21,14 @@ img {
     /* align-items: center; */
 }
 
-article{
-    padding-top: 20px;
-    font-family: 'sans-serif';
-    font-weight: 550;
-}
-p {
+.homearticle{
     /* font-family: 'Lobster'; */
 
     font-size: 23px;
-    padding:3%;
-    width:50vw;
-    font-weight: 200;
+    width:auto;
+    padding: 3%;
+    font-family: 'sans-serif';
+    font-weight: 500;
 }
 
 span{

@@ -156,6 +156,7 @@ class App extends Component {
               <UpdateRequestPage
                 handleUpdateRequest={this.handleUpdateRequest}
                 location={location}
+                user={this.state.user}
               />
               :
                   <Redirect to="/login" />
@@ -164,7 +165,11 @@ class App extends Component {
               exact path="/account" 
               render={(props) => (
                 userService.getUser() ?
-                  <AccountPage {...props}/>
+                  <AccountPage 
+                    {...props}
+                    user = {this.state.user}
+                    request={this.state.request}
+                  />
                 :
                   <Redirect to="/login" />
               )} 

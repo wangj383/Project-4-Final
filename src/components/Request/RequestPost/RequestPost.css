@@ -7,7 +7,6 @@
     position:absolute;
     left:3%;
     top: 4%;
-
 }
 
 p{
@@ -16,14 +15,14 @@ p{
 }
 
 
-
+.card {
+    width: 50vw;
+}
 .card .card-title{
     font-weight:600;
 }
 
-.card-action{
-    display: inline-block
-}
+
 
 .card-action button{
     margin:10px 15px;

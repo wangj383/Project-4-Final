@@ -31,6 +31,7 @@ function RequestPost({request, handleDeleteRequest, user}) {
                         </Link>
                         <button
                             className='btn btn-xs btn-danger margin-left-10'
+                            style={{backgroundColor: "#FF6347"}}
                             onClick={() => handleDeleteRequest(request._id)}
                         >
                             DELETE
@@ -38,7 +39,8 @@ function RequestPost({request, handleDeleteRequest, user}) {
                         </>
                     ):(
                         <button
-                            className='btn btn-xs btn-danger margin-left-10'
+                            className='btn btn-xs btn-danger margin-left-10' 
+                            style={{backgroundColor: "#fb8c00"}}
                         >
                             Join as a {request.driver? <>rider</> : <>driver</>}!
                         </button>
