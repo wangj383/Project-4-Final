@@ -1,16 +1,26 @@
 img {
-    width: 70vw;
+    width: 50vw;
+    height:auto;
 }
 
 .HomePage {
     text-align: center;
+    display:flex;
+    align-items:center;
+    margin:0 auto;
 }
 
+.container{
+    /* display: block; */
+    margin-top: 3%;
+    margin-right: 17%;
+    /* align-items: center; */
+}
 p {
     font-family: 'Lobster';
     font-size: 23px;
     padding:2%;
-
+    width:50vw;
 }
 
 span{
@@ -18,14 +28,15 @@ span{
 }
 
 button{
-    display: block;
-    margin: 5% auto;
+    position:relative;
+    left:8%;
+    margin-top: 5%;
     border: none;
     color: white;
     background-color: rgb(75, 94, 202);
     border-radius: 2px;
     font-size: 20px;
-    padding: 10px;
+    padding: 20px;
 }
 
 button:hover{

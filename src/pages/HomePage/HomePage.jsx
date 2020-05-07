@@ -6,11 +6,13 @@ import './HomePage.css'
 const HomePage = (props) => {
   return(
   <div className='HomePage'>
-
-    <p><span>Carpooling with Colleagues </span><br />
-        A great way to save commuting costs while expanding social connections</p>
+    <div className="container">
+    <p className="card"><span className='card-header'>Carpooling with Colleagues </span>
+    <br />
+       A great way to save commuting costs while expanding social connections</p>
     <img src={phone} alt="WebsiteOnPhone" ></img>
-    <button><Link to='/signup' className='NavBar-link'>Join Now</Link></button>
+    <div><button><Link to='/signup' className='NavBar-link'>Join Now</Link></button></div>
+    </div>
   </div>
   )
 };

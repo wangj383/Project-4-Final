@@ -30,24 +30,13 @@ class SignUpPage extends Component {
                 <header className="header-footer">Sign Up</header>
                 <h1>{this.state.title}</h1>
                 <div className='lottie'>
-                    <section onClick={this.props.showUser.bind(this)}>
-                        <UserLottie />   
-                        <button 
-                            className='buttonstyle' 
-                            onClick={this.props.showUser.bind(this)}>
-                            User
-                        </button>
+                    <section >
+                        <div className='img' onClick={this.props.showUser.bind(this)}><UserLottie {...this.props} /></div>   
                     </section>
-                    <section onClick={this.props.showOrganization.bind(this)}>
-                        <OrganizationLottie/>
-                        <button 
-                        className='buttonstyle' id="orgbutton"
-                        onClick={this.props.showOrganization.bind(this)}>
-                        Organization
-                    </button>
+                    <section>
+                    <div className='img' onClick={this.props.showOrganization.bind(this)}><OrganizationLottie {...this.props}/></div>
                     </section>
                 </div>
-                
                 <div className="box-controller">
                 </div>
                 <div className='form'>

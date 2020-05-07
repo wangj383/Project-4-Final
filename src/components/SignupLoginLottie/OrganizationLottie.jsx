@@ -17,13 +17,20 @@ class OrganizationLottie extends Component {
     };
 
     return(
+      <section className='orgsec'>
       <div className="organization">
         <Lottie options={defaultOptions}
               isStopped={this.state.isStopped}
               isPaused={this.state.isPaused}
         />
       </div>
-    )
+      <button 
+          className='buttonstyle' 
+          onClick={this.props.showOrganization.bind(this)}>
+          Organization
+      </button>
+      </section>
+      )
   }
 }
 

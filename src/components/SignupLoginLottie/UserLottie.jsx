@@ -17,12 +17,20 @@ class UserLottie extends Component {
     };
 
     return(
-      <div className="user">
-        <Lottie options={defaultOptions}
-              isStopped={this.state.isStopped}
-              isPaused={this.state.isPaused}
-        />
-      </div>
+      <section>
+        <div className="user">
+          <Lottie options={defaultOptions}
+                isStopped={this.state.isStopped}
+                isPaused={this.state.isPaused}
+          />
+        </div>
+        <button 
+            className='buttonstyle' 
+            onClick={this.props.showUser.bind(this)}>
+            User
+        </button>
+      </section>
+
     )
   }
 }

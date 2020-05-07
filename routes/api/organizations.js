@@ -6,8 +6,9 @@ router.post('/signup', organizationsCtrl.signup)
 router.post('/login', organizationsCtrl.login)
 
 // the followings are for super admin person to use
-// router.get('/',organizationsCtrl.index)
-// router.delete('/:id',organizationsCtrl.delete)
+router.get('/',organizationsCtrl.index)
+router.delete('/:id',organizationsCtrl.delete)
+
 router.use(require('../../config/auth'));
 router.get('/:id',checkAuthOrg, organizationsCtrl.show)
 router.put('/:id',checkAuthOrg, organizationsCtrl.update)

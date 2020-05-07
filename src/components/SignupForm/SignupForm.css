@@ -1,3 +1,11 @@
 .text {
     font-size: 14px;
 }
+
+.hover{
+    padding: 10px 20px;
+}
+.hover:hover{
+    background-color: rgb(255, 245, 224);
+
+}

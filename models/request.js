@@ -14,6 +14,7 @@ var requestSchema = new Schema({
     driver: {type: Schema.Types.ObjectId, ref: 'User'},
     rider: [{type: Schema.Types.ObjectId, ref: 'User'}],
     notes: {type: String},
+    host:{type: Schema.Types.ObjectId, ref: 'User'}
     // can later add in another schema of notes!
 }, {
   timestamps: true

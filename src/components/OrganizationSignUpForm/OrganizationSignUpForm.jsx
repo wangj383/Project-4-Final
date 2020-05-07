@@ -40,6 +40,8 @@ class OrganizationSignupForm extends Component {
     render() {
         return (
             <div>
+                <h1>Organization</h1>
+                <br />
                 <form className="form-horizontal" onSubmit={this.handleSubmit}>      
                     <div className="form-group">
                         <div className="col-sm-12">
@@ -102,7 +104,7 @@ class OrganizationSignupForm extends Component {
                         </div>
                     </div>           
                     <div className="form-group">
-                        <div className="col-sm-12 text-center">
+                        <div className="col-sm-12 text-center space">
                             <button className="btn btn-default" disabled={this.isFormInvalid()}>
                                 Sign Up
                             </button>

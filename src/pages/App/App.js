@@ -23,7 +23,7 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       organization: organizationService.getOrg(),
-      clickedUser: true,
+      clickedUser: false,
       clickedOrganization: false,
       requests: [],
     }
@@ -59,6 +59,13 @@ class App extends Component {
     this.setState({clickedUser: false, clickedOrganization: true})
   }
 
+//   handleForm = async (userState, organizationState) => {
+//     this.setState(
+//       {clickedUser: userState,
+//       clickedOrganization: organizationState}
+
+//     );
+// }
   handleCreateRequest = async newRequestData => {
     const newRequest = await requestService.create(newRequestData);
     this.setState(state => ({
@@ -84,13 +91,13 @@ class App extends Component {
       requests: state.requests.filter(request => request._id !== id)
     }), () => this.props.history.push('/'));
   }
-
+  // SHARIDE
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-        SHARIDE
+        <img src={logo} className="logo"></img>
         </header>
         <NavBar 
             user={this.state.user} 

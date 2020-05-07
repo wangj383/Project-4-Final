@@ -49,7 +49,12 @@ class CreateForm extends Component {
     
     handleSubmit = e => {
         e.preventDefault();
-        this.props.handleCreateRequest(this.state.formData);
+        try{
+            await this.props.handleCreateRequest(this.state.formData);
+            this.props.history.push('/requests');
+        } catch(err){
+            this.props.updateMessage(err.message);
+        }
       };
 
     render() {
@@ -148,7 +153,7 @@ class CreateForm extends Component {
                             >
                                 Create Now
                             </button>
-                            <Link to="/allrequests">Cancel</Link>
+                            <Link to="/requests">Cancel</Link>
                         </div>
                     </div>
                     </form>

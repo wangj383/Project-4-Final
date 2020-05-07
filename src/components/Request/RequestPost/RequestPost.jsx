@@ -5,14 +5,14 @@ function RequestPost({request, handleDeleteRequest}) {
         return(
             <div className='card'>
                 <div className="card-content">        
-                    <div className='card-body'>
+                    <div className='card-content'>
                         <span className='card-title'>{request.title}</span>
                         <p>Requested by: </p>
                         <p>Pick Up Address: </p>
                         <p>Pick Up Time: </p>
                         <p>Destination Address: </p>
                     </div>
-                    <div className='card-footer '>
+                    <div className='card-action '>
                         <Link
                             className='btn btn-xs btn-warning'
                             to={{

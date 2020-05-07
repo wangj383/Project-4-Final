@@ -1,4 +1,4 @@
-.user{
+/* .user{
     height: 40%;
     width: 60%;
 }
@@ -6,4 +6,66 @@
 .organization{
     height: 50%;
     width: 50%;
+}
+ */
+
+
+section{
+    position: relative;
+    width:50%;
+    
+}
+
+.orgsec {
+  width: 40%;
+}
+
+.user{
+  opacity: 1;
+  display: block;
+  width: 150%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.organization{
+  opacity: 1;
+  display: block;
+  width: 150%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+
+.buttonstyle{
+  display: grid;
+  padding: 10px;
+  color: white;
+  background-color: rgb(132, 150, 236);
+  border-radius: 2px;
+  align-self: center;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+
+}
+
+
+
+section:hover .user{
+  opacity: 0.2;
+}
+
+section:hover .organization{
+  opacity: 0.2;
+}
+
+section:hover .buttonstyle{
+  opacity: 1;
 }

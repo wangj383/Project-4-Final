@@ -73,6 +73,8 @@ class SignupForm extends Component {
     render() {
         return (
             <div>
+                <h1>User</h1>
+                <br />
                 <form className="form-horizontal" autoComplete="off" onSubmit={this.handleSubmit}>  
                     <div className="form-group">
                         <div className="col-sm-12">
@@ -174,24 +176,25 @@ class SignupForm extends Component {
                     </div> 
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <label>
+                            <label class="hover" style={{fontSize:'20px'}}>
                                 Want to be a driver? &nbsp;
                             <input
                                 type="checkbox"
                                 checked={this.state.driver}
                                 name="driver"
                                 onChange={this.handleDriverChange}
+                                style={{opacity:'1',transform: 'scale(2)'}}
                             />
                             </label>
                         </div>
                     </div>           
                     <div className="form-group">
-                        <div className="col-sm-12 text-center">
+                        <div className="col-sm-12 text-center space">
                             <button className="btn btn-default" disabled={this.isFormInvalid()}>
                                 Sign Up
                             </button>
                             &nbsp;&nbsp;
-                            <Link to="/">Cancel</Link>
+                            <button className="cancel"><Link to="/" >Cancel</Link></button>
                         </div>
                     </div>
                 </form>

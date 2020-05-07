@@ -6,7 +6,7 @@ class RequestContainer extends Component {
    
     render() {
         return (
-            <div className="RequestContainer card-group">
+            <div className="RequestContainer card-rows">
                 {this.props.requests.map(request => 
                     <RequestPost request={request} key={request._id} user={this.props.user}/>
                 )}
