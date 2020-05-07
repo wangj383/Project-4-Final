@@ -176,15 +176,14 @@ class SignupForm extends Component {
                     </div> 
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <label class="hover" style={{fontSize:'20px'}}>
-                                Want to be a driver? &nbsp;
+                            <label>
                             <input
                                 type="checkbox"
                                 checked={this.state.driver}
                                 name="driver"
                                 onChange={this.handleDriverChange}
-                                style={{opacity:'1',transform: 'scale(2)'}}
                             />
+                            <span>Want to be a driver? </span>
                             </label>
                         </div>
                     </div>           

@@ -3,10 +3,9 @@ import tokenService from './tokenService';
 const BASE_URL = '/api/requests/';
 
 function getAll() {
-  return fetch(BASE_URL, {headers: {authorization:'Bearer ' + tokenService.getToken()}})
+  return fetch(BASE_URL, {headers: {'content-type': 'application/json', authorization:'Bearer ' + tokenService.getToken()}})
   .then(res => res.json())
 }
-
 function create(request) {
   return fetch(BASE_URL, {
     method: 'POST',

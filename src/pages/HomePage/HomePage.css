@@ -5,31 +5,43 @@ img {
 
 .HomePage {
     text-align: center;
-    display:flex;
+    /* display:flex; */
     align-items:center;
     margin:0 auto;
 }
 
-.container{
+.card{
+    display: inline-block;
+}
+.container2{
     /* display: block; */
     margin-top: 3%;
-    margin-right: 17%;
+    /* margin-right: 17%; */
+    
     /* align-items: center; */
 }
+
+article{
+    padding-top: 20px;
+    font-family: 'sans-serif';
+    font-weight: 550;
+}
 p {
-    font-family: 'Lobster';
+    /* font-family: 'Lobster'; */
+
     font-size: 23px;
-    padding:2%;
+    padding:3%;
     width:50vw;
+    font-weight: 200;
 }
 
 span{
     font-size: 33px;
+    /* font-family: 'Lobster'; */
 }
 
 button{
     position:relative;
-    left:8%;
     margin-top: 5%;
     border: none;
     color: white;

@@ -6,7 +6,7 @@ import './CreateRequestPage.css'
 
 const CreateRequestPage = (props) => {
   return (
-    <div clasName='CreateRequestPages'>
+    <div className='CreateRequestPages'>
       <h1>Create a Ride Request</h1>
       <div className="inner">
         

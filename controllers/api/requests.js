@@ -14,12 +14,11 @@ module.exports = {
 // show all requests for that organizations
 // later need to see how to select driver requests and user request in two different tabs on the website
 function index(req, res) {
-    const organization = req.query.organization
-    Request.find({organization: organization})
-    .populate('user')
-    .populate('acceptedUser')
-    .populate('canceledUser')
-    .populate('confirmedUser')
+    Request.find()
+    .populate('driver')
+    .populate('rider')
+    .populate('host')
+    .populate('organization')
     .then(function(requests){
         res.json(requests);
     })
@@ -31,10 +30,10 @@ function index(req, res) {
 // show selective request info
 function show(req, res) {
     Request.findById(req.params.id)
-    .populate('user')
-    .populate('acceptedUser')
-    .populate('canceledUser')
-    .populate('confirmedUser')
+    .populate('driver')
+    .populate('rider')
+    .populate('host')
+    .populate('organization')
     .then(function(requests){
         res.json(requests)
     })
@@ -44,10 +43,11 @@ function show(req, res) {
 function create(req,res){
     Request.create(req.body)
     .then(function(request){
+        console.log(request)
         res.json(request)
     })
     .catch(function(err){
-        console.log(err)
+        console.log("error is here!")
         if (err.name === 'ValidationError') {
             return res.status(400).json({ error: 'Invalid Inputs' });
         }
@@ -62,10 +62,10 @@ function update(req, res) {
         req.body, 
         {new: true}
     )
-    .populate('user')
-    .populate('acceptedUser')
-    .populate('canceledUser')
-    .populate('confirmedUser')
+    .populate('driver')
+    .populate('rider')
+    .populate('host')
+    .populate('organization')
     .then(function(requests) {
         res.status(200).json(requests);
     })

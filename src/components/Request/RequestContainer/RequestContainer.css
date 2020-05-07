@@ -1,0 +1,10 @@
+.card-rows{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+div {
+    font-size: 18px;
+}
+

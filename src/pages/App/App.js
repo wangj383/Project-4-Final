@@ -28,11 +28,11 @@ class App extends Component {
       requests: [],
     }
   }
-  async componentDidMount() {
-    const requests = await requestService.getAll();
-    console.log(requests)
-    this.setState({requests});
+
+  handleAll = requests => {
+    this.setState({requests})
   }
+
 
   handleLogout = () => {
     userService.logout();
@@ -59,19 +59,12 @@ class App extends Component {
     this.setState({clickedUser: false, clickedOrganization: true})
   }
 
-//   handleForm = async (userState, organizationState) => {
-//     this.setState(
-//       {clickedUser: userState,
-//       clickedOrganization: organizationState}
-
-//     );
-// }
   handleCreateRequest = async newRequestData => {
     const newRequest = await requestService.create(newRequestData);
     this.setState(state => ({
       requests: [...state.requests, newRequest]
     }),
-    () => this.props.history.push('/'));
+    () => this.props.history.push('/requests'));
   }
 
   handleUpdateRequest = async updatedRequestData => {
@@ -81,7 +74,7 @@ class App extends Component {
     );
     this.setState(
       {requests: newRequestsArray},
-      () => this.props.history.push('/')
+      () => this.props.history.push('/requests')
     );
   }
 
@@ -89,15 +82,14 @@ class App extends Component {
     await requestService.deleteOne(id);
     this.setState(state => ({
       requests: state.requests.filter(request => request._id !== id)
-    }), () => this.props.history.push('/'));
+    }), () => this.props.history.push('/requests'));
   }
-  // SHARIDE
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-        <img src={logo} className="logo"></img>
+        <img src={logo} className="logo" alt="logo"></img>
         </header>
         <NavBar 
             user={this.state.user} 
@@ -145,7 +137,7 @@ class App extends Component {
               exact path="/requests" 
               render={(props) => (
                 userService.getUser() ?
-                  <AllRequestsPage {...props} requests={this.state.requests} user={this.state.user} handleDeleteRequest={this.handleDeleteRequest}/>
+                  <AllRequestsPage {...props} requests={this.state.requests} user={this.state.user} handleAll={this.handleAll} handleDeleteRequest={this.handleDeleteRequest}/>
                 :
                   <Redirect to="/login" /> 
               )} 

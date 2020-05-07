@@ -1,16 +1,24 @@
-import React from 'react';
+import React,{Component} from 'react';
 import RequestContainer from '../../components/Request/RequestContainer/RequestContainer'
 import SearchForm from '../../components/Request/SearchForm/SearchForm'
+import requestService from '../../utils/requestService'
 
-const AllRequestsPage = (props) => {
-  return (
-    <div className='allRequestPage'>
-      <h1>Listed Requests</h1>
-      <SearchForm {...props} />
-      <RequestContainer {...props}/>
+class AllRequestsPage extends Component {
 
-    </div>
-  )
+  async componentDidMount() {
+    const requests = await requestService.getAll();
+    console.log(requests)
+    this.props.handleAll(requests)
+  }
+  render() {
+    return (
+      <div className='allRequestPage'>
+        <h1>Listed Requests</h1>
+        <SearchForm {...this.props} />
+        <RequestContainer {...this.props}/>
+
+      </div>
+  )}
 };
 
 export default AllRequestsPage;

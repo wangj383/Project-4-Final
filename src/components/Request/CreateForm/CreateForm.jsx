@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './CreateForm.css'
 
 class CreateForm extends Component {
     constructor(props) {
@@ -11,11 +12,14 @@ class CreateForm extends Component {
                 pickUpTime: '',
                 pickUpAddress: '',
                 destinationAddress: '',
-                driver: false,
                 seats: '',
                 urgent: false,
                 notes:'',
-                host: this.props.user._id
+                host: this.props.user._id,
+                driver: undefined,
+                rider: [this.props.user._id],
+                organization: this.props.user.organization,
+                
             }
         }
     }
@@ -42,19 +46,17 @@ class CreateForm extends Component {
         console.log(event.target.checked)
         this.setState({
             // Have a warning for this..
-            formData:{...this.state.formData, driver: event.target.checked? this.props.user._id: undefined},
+            formData:{ ...this.state.formData, 
+                    driver: event.target.checked? this.props.user._id: undefined, 
+                    rider: event.target.checked ? undefined : [this.props.user._id]
+            },
             invalidForm: !this.formRef.current.checkValidity()
         })
     }
     
     handleSubmit = e => {
         e.preventDefault();
-        try{
-            await this.props.handleCreateRequest(this.state.formData);
-            this.props.history.push('/requests');
-        } catch(err){
-            this.props.updateMessage(err.message);
-        }
+        this.props.handleCreateRequest(this.state.formData);
       };
 
     render() {
@@ -71,6 +73,19 @@ class CreateForm extends Component {
                             onChange={this.handleChange}
                             required
                             />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-sm-12">
+                            <label>
+                            <input
+                                type="checkbox"
+                                checked={!!this.state.formData.driver}
+                                name="driver"
+                                onChange={this.handleDriverChange}
+                            />
+                            <span>I am the driver</span>
+                            </label>
                         </div>
                     </div>
                     <div className="form-group">
@@ -110,45 +125,36 @@ class CreateForm extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-12">
-                            <label>I am the driver</label>
+                        <div className="col-sm-12" >
+                            <label htmlFor="urgbox">
                             <input
-                                type="checkbox"
-                                checked={!!this.state.formData.driver}
-                                name="driver"
-                                onChange={this.handleDriverChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-12">
-                            <label>Notes</label>
-                            <input
-                            className="form-control"
-                            name="notes"
-                            value={this.state.formData.notes}
-                            onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-12">
-                            <label>Urgent?
-                            <input
+                                id="urgbox"
                                 type="checkbox"
                                 checked={this.state.formData.urgent}
                                 name="urgent"
                                 onChange={this.handleUrgentChange}
                             />
+                            <span>Urgent?</span>
                             </label>
                         </div>
                     </div>
+                    <div className="form-group">
+                    <div className="col-sm-12">
+                        <label>Additional Notes</label>
+                        <input
+                        className="form-control"
+                        name="notes"
+                        value={this.state.formData.notes}
+                        onChange={this.handleChange}
+                        />
+                    </div>
+                </div>
 
                     <div className="form-group">
                         <div className="col-sm-12">
                             <button
                                 type="submit"
-                                className="btn"
+                                className="btn waves-effect waves-light"
                                 disabled={this.state.invalidForm}
                             >
                                 Create Now
