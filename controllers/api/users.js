@@ -2,15 +2,13 @@ const User = require('../../models/user');
 const Request = require('../../models/request');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
+const Organization = require('../../models/organization')
 
 module.exports = {
     signup,
     login,
     index,
     show,
-    // new: newUser,
-    // create,
-    edit,
     update,
     delete: deleteUser,
     requestHistory,
@@ -100,11 +98,6 @@ function show(req, res) {
 //         res.status(500).json({ error: 'Could not create user' });
 //     })
 // }
-
-function edit(req,res){
-    // let user= User.findById(req.params.id)
-    // res.render('users/edit, user')
-}
 
 function update(req, res) {
     User.findByIdAndUpdate(

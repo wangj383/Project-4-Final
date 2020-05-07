@@ -1,56 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './NavBar.css'
 
 const NavBar = (props) => {
     let nav = props.user ? (
-        <div>
-            <Link to="/allrequests" className="NavBar-link">
+        <ul className="navtab">
+            <li><Link to="/request/create" className="NavBar-link">
                 Create a Request
-            </Link>
+            </Link></li>
             &nbsp;
-            <Link to="/allrequests" className="NavBar-link">
-                Listed Rides
-            </Link>
+            <li><Link to="/requests" className="NavBar-link">
+                Listed Requests
+            </Link></li>
             &nbsp;
-            <span className="NavBar-welcome">Search: </span>
-            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to="/account" className="NavBar-link">
+            <li><Link to="/account" className="NavBar-link">
                 My Account
-            </Link>
+            </Link></li>
             &nbsp;
-            <Link to="" className="NavBar-link" onClick={props.handleLogout}>
+            <li><Link to="" className="NavBar-link" onClick={props.handleLogout}>
                 Log Out
-            </Link>     
-        </div>
+            </Link></li>     
+        </ul>
     ) :  (props.organization ? (
-            <div>
-                <Link to="/organization/account" className="NavBar-link">
+            <ul className="navtab">
+                <li><Link to="/organization/account" className="NavBar-link">
                     Organization Account
-                </Link>
+                </Link></li>
                 &nbsp;
-                <Link to="" className="NavBar-link" onClick={props.orghandleLogout}>
+                <li><Link to="" className="NavBar-link" onClick={props.orghandleLogout}>
                     Log Out
-                </Link>   
-            </div>
+                </Link></li>   
+            </ul>
         ):(
-            <div>
-                <Link to="/signup" className="NavBar-link">
+            <ul className="navtab"  >
+                <li  ><Link to="/signup" className="NavBar-link">
                     Sign Up
-                </Link>
+                </Link ></li>
                 &nbsp;
-                <Link to="/login" className="NavBar-link">
+                <li ><Link to="/login"className="NavBar-link" >
                     Log In
-                </Link>
-            </div>
+                </Link></li>
+            </ul>
         )
     )
 
     return (
-        <div className="NavBar">
-            <Link to="/" className="NavBar-link">
-                Home
-            </Link>
-            &nbsp;
+        <div className="NavBar" style={{textDecoration:"none"}}>
+            <ul className="navtab">
+                <li>
+                <Link to="/" className="NavBar-link">
+                    Home
+                </Link>
+                </li>
+            </ul>
             {nav}
         </div>
     )

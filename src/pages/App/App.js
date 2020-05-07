@@ -7,11 +7,15 @@ import HomePage from '../HomePage/HomePage'
 import AllRequestsPage from '../AllRequestsPage/AllRequestsPage'
 import AccountPage from '../AccountPage/AccountPage'
 import OrganizationAccountPage from '../OrganizationAccountPage/OrganizationAccountPage'
-
+import CreateRequestPage from '../CreateRequestPage/CreateRequestPage'
+import UpdateRequestPage from '../UpdateRequestPage/UpdateRequestPage'
 import SignUpPage from '../SignUpPage/SignUpPage'
 import LoginPage from '../LoginPage/LoginPage'
 import userService from '../../utils/userService'
+import requestService from '../../utils/requestService'
 import organizationService from '../../utils/organizationService';
+
+import logo from './logo4.png'
 
 class App extends Component {
   constructor() {
@@ -20,15 +24,14 @@ class App extends Component {
       user: userService.getUser(),
       organization: organizationService.getOrg(),
       clickedUser: true,
-      clickedOrganization: false
+      clickedOrganization: false,
+      requests: [],
     }
   }
-  showUser() {
-    this.setState({clickedUser: true, clickedOrganization: false})
-  }
-
-  showOrganization() {
-    this.setState({clickedUser: false, clickedOrganization: true})
+  async componentDidMount() {
+    const requests = await requestService.getAll();
+    console.log(requests)
+    this.setState({requests});
   }
 
   handleLogout = () => {
@@ -48,83 +51,136 @@ class App extends Component {
   orghandleSignupOrLogin = () => {
     this.setState({ organization: organizationService.getOrg() });
   };
+  showUser() {
+    this.setState({clickedUser: true, clickedOrganization: false})
+  }
+
+  showOrganization() {
+    this.setState({clickedUser: false, clickedOrganization: true})
+  }
+
+  handleCreateRequest = async newRequestData => {
+    const newRequest = await requestService.create(newRequestData);
+    this.setState(state => ({
+      requests: [...state.requests, newRequest]
+    }),
+    () => this.props.history.push('/'));
+  }
+
+  handleUpdateRequest = async updatedRequestData => {
+    const updatedRequest = await requestService.update(updatedRequestData);
+    const newRequestsArray = this.state.requests.map(request => 
+      request._id === updatedRequest._id ? updatedRequest : request
+    );
+    this.setState(
+      {requests: newRequestsArray},
+      () => this.props.history.push('/')
+    );
+  }
+
+  handleDeleteRequest= async id => {
+    await requestService.deleteOne(id);
+    this.setState(state => ({
+      requests: state.requests.filter(request => request._id !== id)
+    }), () => this.props.history.push('/'));
+  }
+
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          Sharing on the Road
-          <NavBar 
+        SHARIDE
+        </header>
+        <NavBar 
             user={this.state.user} 
             organization={this.state.organization}
             handleLogout={this.handleLogout}
             orghandleLogout={this.orghandleLogout}
           />
-        </header>
-        <Switch>
-          <Route
-            exact path="/signup"
-            render={({ history }) => (
-              <SignUpPage 
-                history={history} 
-                handleSignupOrLogin={this.handleSignupOrLogin} 
-                orghandleSignupOrLogin={this.orghandleSignupOrLogin} 
-                clickedUser={this.state.clickedUser}
-                clickedOrganization={this.state.clickedOrganization}
-                showOrganization={this.showOrganization}
-                showUser={this.showUser}
+        <div className='container'>
+          <Switch>
+            <Route
+              exact path="/signup"
+              render={({ history }) => (
+                <SignUpPage 
+                  history={history} 
+                  handleSignupOrLogin={this.handleSignupOrLogin} 
+                  orghandleSignupOrLogin={this.orghandleSignupOrLogin} 
+                  clickedUser={this.state.clickedUser}
+                  clickedOrganization={this.state.clickedOrganization}
+                  showOrganization={this.showOrganization}
+                  showUser={this.showUser}
+                />
+              )}
+            />
+            <Route
+              exact path="/login"
+              render={({history}) => (
+                <LoginPage 
+                  history={history} 
+                  handleSignupOrLogin={this.handleSignupOrLogin} 
+                  orghandleSignupOrLogin={this.orghandleSignupOrLogin}
+                  clickedUser={this.state.clickedUser}
+                  clickedOrganization={this.state.clickedOrganization}
+                  showOrganization={this.showOrganization}
+                  showUser={this.showUser}
+                />
+              )}
+            />
+            <Route 
+              exact path='/' 
+              render={(props) => (
+                <HomePage {...props}/>
+              )} 
+            />
+            <Route 
+              exact path="/requests" 
+              render={(props) => (
+                userService.getUser() ?
+                  <AllRequestsPage {...props} requests={this.state.requests} user={this.state.user} handleDeleteRequest={this.handleDeleteRequest}/>
+                :
+                  <Redirect to="/login" /> 
+              )} 
+            />
+            <Route 
+              exact path="/request/create" 
+              render={(props) => (
+                userService.getUser() ?
+                  <CreateRequestPage {...props} user={this.state.user} handleCreateRequest={this.handleCreateRequest}/>
+                :
+                  <Redirect to="/login" />
+              )} 
+            />
+            <Route exact path='/request/update' render={({location}) => 
+            userService.getUser() ?
+              <UpdateRequestPage
+                handleUpdateRequest={this.handleUpdateRequest}
+                location={location}
               />
-            )}
-          />
-          <Route
-            exact path="/login"
-            render={({history}) => (
-              <LoginPage 
-                history={history} 
-                handleSignupOrLogin={this.handleSignupOrLogin} 
-                orghandleSignupOrLogin={this.orghandleSignupOrLogin}
-                clickedUser={this.state.clickedUser}
-                clickedOrganization={this.state.clickedOrganization}
-                showOrganization={this.showOrganization}
-                showUser={this.showUser}
-              />
-            )}
-          />
-          <Route 
-            exact path='/' 
-            render={(props) => (
-              <HomePage {...props}/>
-            )} 
-          />
-          <Route 
-            exact path="/allrequests" 
-            render={(props) => (
-              userService.getUser() ?
-                <AllRequestsPage {...props}/>
               :
-                <Redirect to="/login" />
-            )} 
-          />
-          <Route 
-            exact path="account" 
-            render={(props) => (
-              userService.getUser() ?
-                <AccountPage {...props}/>
-              :
-                <Redirect to="/login" />
-            )} 
-          />
-          <Route 
-            exact path="/organization/account" 
-            render={(props) => (
-              organizationService.getOrg() ?
-                <OrganizationAccountPage {...props}/>
-              :
-                <Redirect to="/login" />
-            )} 
-          />
-
-          </Switch>
+                  <Redirect to="/login" />
+            } />
+            <Route 
+              exact path="/account" 
+              render={(props) => (
+                userService.getUser() ?
+                  <AccountPage {...props}/>
+                :
+                  <Redirect to="/login" />
+              )} 
+            />
+            <Route 
+              exact path="/organization/account" 
+              render={(props) => (
+                organizationService.getOrg() ?
+                  <OrganizationAccountPage {...props}/>
+                :
+                  <Redirect to="/login" />
+              )} 
+            />
+            </Switch>
+          </div>
         <footer className="sticky-footer">
           Copyright ©	2020 Sharing on the Road. All rights reserved.
         </footer>

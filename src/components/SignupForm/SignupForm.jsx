@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import {Dropdown} from 'semantic-ui-react'
+import './SignupForm.css'
 
 class SignupForm extends Component {
-    state = {
-        name: '',
-        employee_id: '',
-        gender: '',
-        email: '',
-        phoneNum: '',
-        password: '',
-        passwordConf: '',
-        driver:false,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            organization: "",
+            name: '',
+            employee_id: '',
+            gender: '',
+            email: '',
+            phoneNum: '',
+            password: '',
+            passwordConf: '',
+            driver:false,
+        }
+    }
+   
+    orgOption() {
+        let arr=[]
+        this.props.organizations.forEach((org,idx) => {
+            arr.push({
+                key: idx,
+                text: org.name,
+                value: org._id
+                })
+        })
+        return arr
+    }
 
     handleChange = (e) => {
-        this.props.updateMessage('');
         this.setState({
             [e.target.name]: e.target.value,
         });
-    };
+    }
 
     handleDriverChange = (event) =>{
         this.setState({
@@ -32,11 +49,17 @@ class SignupForm extends Component {
         try {
             await userService.signup(this.state);
             this.props.handleSignupOrLogin();
-            this.props.history.push('/');
+            this.props.history.push('/login');
         } catch (err) {
             this.props.updateMessage(err.message);
         }
-    };
+    }
+    orghandleChange = (e, {value}) => {
+        this.setState({
+            organization: value
+           
+        })
+    }
 
     isFormInvalid() {
         return !(
@@ -45,10 +68,26 @@ class SignupForm extends Component {
             this.state.password === this.state.passwordConf
         );
     }
+
+
     render() {
         return (
             <div>
-                <form className="form-horizontal" onSubmit={this.handleSubmit}>      
+                <form className="form-horizontal" autoComplete="off" onSubmit={this.handleSubmit}>  
+                    <div className="form-group">
+                        <div className="col-sm-12">
+                            <Dropdown
+                                placeholder="Select Organization"
+                                fluid
+                                search
+                                selection
+                                options={this.orgOption()}
+                                value={this.state.value}
+                                name='organization'
+                                onChange={this.orghandleChange}
+                            />
+                        </div>
+                    </div>    
                     <div className="form-group">
                         <div className="col-sm-12">
                             <input
@@ -139,7 +178,6 @@ class SignupForm extends Component {
                                 Want to be a driver? &nbsp;
                             <input
                                 type="checkbox"
-                                
                                 checked={this.state.driver}
                                 name="driver"
                                 onChange={this.handleDriverChange}

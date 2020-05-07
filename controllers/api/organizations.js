@@ -9,9 +9,6 @@ module.exports = {
     login,
     index,
     show,
-    // new: newOrganization,
-    // create,
-    edit,
     update,
     delete: deleteOrganization
 };
@@ -64,6 +61,7 @@ function createJWT(organization) {
 function index(req, res) {
     Organization.find({})
     .then(function(organizations) {
+        
         res.json(organizations);
     })
     .catch(function(err){
@@ -114,10 +112,6 @@ function show(req, res) {
 //     })
 // }
 
-function edit(req,res){
-    // let organization = Organization.findById(req.params.id)
-    // res.render('organizations/edit, organization')
-}
 
 // Update organization information
 function update(req, res) {

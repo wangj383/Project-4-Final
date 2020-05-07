@@ -4,9 +4,7 @@ const User = require('../../models/user');
 module.exports = {
     index,
     show,
-    new: newRequest,
     create,
-    edit,
     update,
     delete: deleteRequest,
     // cancelRequest,
@@ -43,21 +41,13 @@ function show(req, res) {
 }
 
 
-function newRequest(req,res){
-    res.render('requests/new')
-}
-// create request under the user
-
 function create(req,res){
-    // This next line will be changed after oAuth is added
-    req.body.user = req.query.user
-    // This next line will be changed after oAuth is added
-    req.body.organization = req.query.organization
     Request.create(req.body)
     .then(function(request){
         res.json(request)
     })
     .catch(function(err){
+        console.log(err)
         if (err.name === 'ValidationError') {
             return res.status(400).json({ error: 'Invalid Inputs' });
         }
@@ -65,11 +55,6 @@ function create(req,res){
     })
 }
 
-
-function edit(req,res){
-    // let request= Request.findById(req.params.id)
-    // res.render('requests/edit, request')
-}
 
 function update(req, res) {
     Request.findByIdAndUpdate(

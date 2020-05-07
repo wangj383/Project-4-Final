@@ -1,14 +1,17 @@
-.SignupPage {
+.inner {
     display: flex;
-    flex-flow: column nowrap;
+    /* flex-flow: column nowrap; */
     justify-content: center;
     align-items: center;
     margin: 50px;
 }
+.CreateRequestPage{
+  margin: 50px;
+}
 
 .buttonstyle{
   display: inline-block;
-  margin: 10px 35%;
+  margin: 10px 20px;
   border: none;
   color: white;
   background-color: #647DFF;
@@ -16,24 +19,13 @@
   font-size: 15px;
 }
 
-#orgbutton{
-  position: relative;
-  top: 25px;
-}
+
 .lottie {
-  /* background-color:rgb(216, 237, 253); */
-  margin-left: 2%;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-section{
-  display: flex;
-  width:60%;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  height:50%;
-}
 
 header {
   text-align: center;

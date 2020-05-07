@@ -2,11 +2,17 @@ import tokenService from './tokenService';
 
 const BASE_URL = '/api/organizations/';
 
+function getAll() {
+  return fetch(BASE_URL)
+  .then(res => res.json())
+}
+
 function signup(organization) {
   return fetch(BASE_URL + 'signup', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'
+
       }),
       body: JSON.stringify(organization),
     })
@@ -47,6 +53,7 @@ function login(creds) {
 }
 
 export default {
+  getAll,
   signup,
   getOrg,
   logout,

@@ -2,6 +2,11 @@ import tokenService from './tokenService';
 
 const BASE_URL = '/api/users/';
 
+function getAll() {
+  return fetch(BASE_URL)
+  .then(res => res.json())
+}
+
 function signup(user) {
   return fetch(BASE_URL + 'signup', {
       method: 'POST',
@@ -48,6 +53,7 @@ function login(creds) {
 }
 
 export default {
+  getAll,
   signup,
   getUser,
   logout,

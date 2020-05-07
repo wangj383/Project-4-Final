@@ -5,16 +5,23 @@ const usersCtrl = require('../../controllers/api/users')
 router.post('/signup', usersCtrl.signup)
 router.post('/login', usersCtrl.login)
 
-router.get('/',usersCtrl.index)
-router.get('/:id',usersCtrl.show)
-// router.get('/new',usersCtrl.new)
-// router.post('/',usersCtrl.create)
-router.get('/:id/edit',usersCtrl.edit)
-router.put('/:id',usersCtrl.update)
-router.delete('/:id',usersCtrl.delete)
-router.get('/:id/requests',usersCtrl.requestHistory)
+router.use(require('../../config/auth'));
+router.get('/',checkAuthOrg,usersCtrl.index)
+router.get('/:id',checkAuthBoth,usersCtrl.show)
+router.put('/:id',checkAuthBoth,usersCtrl.update)
+router.delete('/:id',checkAuthOrg,usersCtrl.delete)
+router.get('/:id/requests',checkAuthBoth,usersCtrl.requestHistory)
 
 
+function checkAuthOrg(req, res, next) {
+    if (req.organization) return next();
+    return res.status(401).json({msg: 'Not Authorized'});
+}
+
+function checkAuthBoth(req, res, next) {
+    if (req.organization|| req.user) return next();
+    return res.status(401).json({msg: 'Not Authorized'});
+}
 module.exports = router;
 
 

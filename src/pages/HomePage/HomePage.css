@@ -1,0 +1,42 @@
+img {
+    width: 70vw;
+}
+
+.HomePage {
+    text-align: center;
+}
+
+p {
+    font-family: 'Lobster';
+    font-size: 23px;
+    padding:2%;
+
+}
+
+span{
+    font-size: 33px;
+}
+
+button{
+    display: block;
+    margin: 5% auto;
+    border: none;
+    color: white;
+    background-color: rgb(75, 94, 202);
+    border-radius: 2px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+button:hover{
+    background-color:rgb(162, 167, 238);
+}
+
+.NavBar-link {
+    color: white;
+}
+
+.NavBar-link:hover, .NavBar-link:active, .NavBar-link:visited{
+    color:white;
+    font-weight: normal;
+}
