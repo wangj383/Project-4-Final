@@ -7,7 +7,6 @@ class AllRequestsPage extends Component {
 
   async componentDidMount() {
     const requests = await requestService.getAll();
-    console.log(requests)
     this.props.handleAll(requests)
   }
   render() {

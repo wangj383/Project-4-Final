@@ -168,7 +168,8 @@ class App extends Component {
                   <AccountPage 
                     {...props}
                     user = {this.state.user}
-                    request={this.state.request}
+                    requests={this.state.requests}
+                    handleAll={this.handleAll}
                   />
                 :
                   <Redirect to="/login" />
