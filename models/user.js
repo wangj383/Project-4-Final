@@ -20,7 +20,7 @@ const userSchema = new Schema({
   name: {type: String, require: true},
   gender: {type: String},
   driver: {type: Boolean, require: true, default: false},
-  car: [carSchema],
+  car: carSchema,
   email: {type: String, require: true},
   phoneNum: {type: String, require: true},
   password: {type: String, require: true},

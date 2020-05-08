@@ -9,7 +9,7 @@ const HomePage = (props) => {
     <div className="container2">
     <article className="card" id="homearticle">
       <span style={{fontWeight:600}}>Sharide</span> 
-      <p> <br />An easy tool to help businesses and large organizations to facilitate their employee carpool program.</p> 
+      <p> <br />An easy tool to help businesses and large organizations to launch an employee carpool program.</p> 
         {props.user
         ?
           <></>

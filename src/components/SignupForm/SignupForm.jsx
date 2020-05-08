@@ -17,6 +17,13 @@ class SignupForm extends Component {
             password: '',
             passwordConf: '',
             driver:false,
+            car: {
+                model:"",
+                make:"",
+                year:undefined,
+                color:"",
+                passengerCapacity:undefined,
+            }
         }
     }
    
@@ -44,6 +51,11 @@ class SignupForm extends Component {
         })
     }
 
+    handleCarChange =(event) => {
+        this.setState({
+            car: {...this.state.car,[event.target.name]:event.target.value }
+        })
+    }
     handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -183,10 +195,78 @@ class SignupForm extends Component {
                                 name="driver"
                                 onChange={this.handleDriverChange}
                             />
-                            <span style={{fontFamily:'Ubuntu',fontSize:'18px'}}>Want to be a driver? </span>
+                            <span style={{fontSize:'18px'}}>Want to be a driver? </span>
                             </label>
                         </div>
-                    </div>           
+                    </div>
+                    {this.state.driver
+                    ?<>
+                    <div className="form-group">
+                        <div className="col-sm-14">
+                            <label style={{fontSize:'18px', marginTop:"5%"}}>Please Enter Your Car Information:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Make"
+                                value={this.state.car.make}
+                                name="make"
+                                onChange={this.handleCarChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-sm-14">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Model"
+                                value={this.state.car.model}
+                                name="model"
+                                onChange={this.handleCarChange}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="form-group">
+                        <div className="col-sm-14">
+                            <input
+                                type="number"
+                                className="form-control"
+                                placeholder="Year"
+                                value={this.state.car.year}
+                                name="year"
+                                onChange={this.handleCarChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-sm-14">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Color"
+                                value={this.state.car.color}
+                                name="color"
+                                onChange={this.handleCarChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-sm-14">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Max Number of Passengers You Would Take"
+                                value={this.state.car.passengerCapacity}
+                                name="passengerCapacity"
+                                onChange={this.handleCarChange}
+                            />
+                        </div>
+                    </div>
+                    </>
+                    :
+                        <></>
+                    }
                     <div className="form-group">
                         <div className="col-sm-14 text-center space" style={{marginTop:"5%"}}>
                             <button className="btn btn-default" style={{marginTop:"0"}} disabled={this.isFormInvalid()}>
