@@ -7,16 +7,23 @@ const HomePage = (props) => {
   return(
   <div className='HomePage'>
     <div className="container2">
-    <img src={phone} alt="WebsiteOnPhone" ></img>
-    <article className="card article homearticle"><span className='card-header'>Carpooling with Colleagues </span> 
-    <p>to save commuting costs while expanding social connections</p>
-    </article>
-    <div>
-      <button  
-        className='btn' 
-        style={{backgroundColor: "#fb8c00"}}>
-          <Link to='/signup' className='NavBar-link'>Join Now</Link></button>
-    </div>
+    <article className="card" id="homearticle">
+      <span style={{fontWeight:600}}>Sharide</span> 
+      <p> <br />An easy tool to help businesses and large organizations to facilitate their employee carpool program.</p> 
+        {props.user
+        ?
+          <></>
+        :
+          <>
+          <button  
+            className='btn' 
+            style={{backgroundColor: "#fb8c00"
+            }}>
+            <Link to='/signup' className='NavBar-link'>Join Now</Link></button>
+          </>
+        }
+      </article>
+      <img src={phone} alt="WebsiteOnPhone" ></img>
     </div>
   </div>
   )

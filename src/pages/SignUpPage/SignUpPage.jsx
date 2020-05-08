@@ -29,13 +29,14 @@ class SignUpPage extends Component {
             <div className="SignupPage root-container"> 
                 <header className="header-footer">Sign Up</header>
                 <h1>{this.state.title}</h1>
-                <div className='lottie'>
+                <div className='lottiee'>
                     <section >
-                        <div className='img' onClick={this.props.showUser.bind(this)}><UserLottie {...this.props} /></div>   
+                        <div className='img1' onClick={this.props.showUser.bind(this)}><UserLottie {...this.props} /></div>   
                     </section>
                     <section>
-                    <div className='img' onClick={this.props.showOrganization.bind(this)}><OrganizationLottie {...this.props}/></div>
+                    <div className='img2' onClick={this.props.showOrganization.bind(this)}><OrganizationLottie {...this.props}/></div>
                     </section>
+                    
                 </div>
                 <div className="box-controller">
                 </div>

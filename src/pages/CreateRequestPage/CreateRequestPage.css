@@ -6,8 +6,13 @@
     margin: 50px;
 }
 .CreateRequestPage{
-  margin: 50px;
+  margin: 0;
 }
+
+.col-sm-12{
+  width:120%;
+}
+
 
 .buttonstyle{
   display: inline-block;
@@ -19,12 +24,11 @@
   font-size: 15px;
 }
 
-
+/* 
 .lottie {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  position:relative;
+  right:15%;
+} */
 
 
 header {
@@ -41,6 +45,6 @@ h1 {
   color:rgb(84, 170, 219);
 }
 
-.form {
-  margin: 5%;
+form label{
+  color: rgb(68, 68, 68);
 }

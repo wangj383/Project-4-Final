@@ -77,19 +77,6 @@ class CreateForm extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <label>
-                            <input
-                                type="checkbox"
-                                checked={!!this.state.formData.driver}
-                                name="driver"
-                                onChange={this.handleDriverChange}
-                            />
-                            <span>I am the driver</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-12">
                             <label>Pick Up Time</label>
                             <input
                             className="form-control"
@@ -124,21 +111,7 @@ class CreateForm extends Component {
                             />
                         </div>
                     </div>
-                    <div className="form-group">
-                        <div className="col-sm-12" >
-                            <label htmlFor="urgbox">
-                            <input
-                                id="urgbox"
-                                type="checkbox"
-                                checked={this.state.formData.urgent}
-                                name="urgent"
-                                onChange={this.handleUrgentChange}
-                            />
-                            <span>Urgent?</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div className="form-group">
+                <div className="form-group">
                     <div className="col-sm-12">
                         <label>Additional Notes</label>
                         <input
@@ -149,13 +122,44 @@ class CreateForm extends Component {
                         />
                     </div>
                 </div>
-
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-12" >
+                            <label>
+                            <input
+                                type="checkbox"
+                                checked={!!this.state.formData.driver}
+                                name="driver"
+                                onChange={this.handleDriverChange}
+                            />
+                            <span style={{fontSize:"16px"}}>I am the driver</span>
+                            </label>
+                        </div>
+                    </div>
+
+
+
+                <div className="form-group" >
+                        <div className="col-sm-12" >
+                            <label htmlFor="urgbox">
+                            <input
+                                id="urgbox"
+                                type="checkbox"
+                                checked={this.state.formData.urgent}
+                                name="urgent"
+                                onChange={this.handleUrgentChange}
+                            />
+                            <span style={{fontSize:"16px"}}>Urgent?</span>
+                            <br />
+                            </label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-sm-12" style={{marginTop:"10%"}}>
                             <button
                                 type="submit"
                                 className="btn waves-effect waves-light"
                                 disabled={this.state.invalidForm}
+                                style={{margin:"0 5%"}}
                             >
                                 Create Now
                             </button>

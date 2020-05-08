@@ -77,7 +77,7 @@ class SignupForm extends Component {
                 <br />
                 <form className="form-horizontal" autoComplete="off" onSubmit={this.handleSubmit}>  
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <Dropdown
                                 placeholder="Select Organization"
                                 fluid
@@ -91,7 +91,7 @@ class SignupForm extends Component {
                         </div>
                     </div>    
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="text"
                                 className="form-control"
@@ -103,7 +103,7 @@ class SignupForm extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="text"
                                 className="form-control"
@@ -115,7 +115,7 @@ class SignupForm extends Component {
                         </div>
                     </div>                   
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="text"
                                 className="form-control"
@@ -127,7 +127,7 @@ class SignupForm extends Component {
                         </div>
                     </div>                     
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="email"
                                 className="form-control"
@@ -139,7 +139,7 @@ class SignupForm extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="text"
                                 className="form-control"
@@ -151,7 +151,7 @@ class SignupForm extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="password"
                                 className="form-control"
@@ -163,7 +163,7 @@ class SignupForm extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="password"
                                 className="form-control"
@@ -175,7 +175,7 @@ class SignupForm extends Component {
                         </div>
                     </div> 
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <label>
                             <input
                                 type="checkbox"
@@ -183,17 +183,17 @@ class SignupForm extends Component {
                                 name="driver"
                                 onChange={this.handleDriverChange}
                             />
-                            <span>Want to be a driver? </span>
+                            <span style={{fontFamily:'Ubuntu',fontSize:'18px'}}>Want to be a driver? </span>
                             </label>
                         </div>
                     </div>           
                     <div className="form-group">
-                        <div className="col-sm-12 text-center space">
-                            <button className="btn btn-default" disabled={this.isFormInvalid()}>
+                        <div className="col-sm-14 text-center space" style={{marginTop:"5%"}}>
+                            <button className="btn btn-default" style={{marginTop:"0"}} disabled={this.isFormInvalid()}>
                                 Sign Up
                             </button>
                             &nbsp;&nbsp;
-                            <button className="cancel"><Link to="/" >Cancel</Link></button>
+                            <Link to="/" >Cancel</Link>
                         </div>
                     </div>
                 </form>

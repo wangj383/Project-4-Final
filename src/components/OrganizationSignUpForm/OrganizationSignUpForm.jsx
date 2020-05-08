@@ -44,7 +44,7 @@ class OrganizationSignupForm extends Component {
                 <br />
                 <form className="form-horizontal" onSubmit={this.handleSubmit}>      
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="text"
                                 className="form-control"
@@ -56,7 +56,7 @@ class OrganizationSignupForm extends Component {
                         </div>
                     </div>                                    
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="email"
                                 className="form-control"
@@ -68,7 +68,7 @@ class OrganizationSignupForm extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="text"
                                 className="form-control"
@@ -80,7 +80,7 @@ class OrganizationSignupForm extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="password"
                                 className="form-control"
@@ -92,7 +92,7 @@ class OrganizationSignupForm extends Component {
                         </div>
                     </div>
                     <div className="form-group">
-                        <div className="col-sm-12">
+                        <div className="col-sm-14">
                             <input
                                 type="password"
                                 className="form-control"
@@ -104,12 +104,12 @@ class OrganizationSignupForm extends Component {
                         </div>
                     </div>           
                     <div className="form-group">
-                        <div className="col-sm-12 text-center space">
-                            <button className="btn btn-default" disabled={this.isFormInvalid()}>
+                        <div className="col-sm-14 text-center space" style={{marginTop:"5%"}}>
+                            <button className="btn btn-default" style={{marginTop:"0"}} disabled={this.isFormInvalid()}>
                                 Sign Up
                             </button>
                             &nbsp;&nbsp;
-                            <Link to="/">Cancel</Link>
+                            <Link to="/" >Cancel</Link>
                         </div>
                     </div>
                 </form>

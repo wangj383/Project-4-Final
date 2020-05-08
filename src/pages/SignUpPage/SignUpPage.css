@@ -14,6 +14,20 @@ header {
   font-size: 40px;
 }
 
+.col-sm-14{
+  width:30vw;
+  
+}
+.img1{
+  position: relative;
+  left:8%;
+ 
+}
+.img2{
+  position: relative;
+  left:9%;
+}
+
 h1 {
   color:rgb(84, 170, 219);
   font-size:32px;
@@ -24,9 +38,12 @@ h1 {
 }
 
 
-.lottie {
+.lottiee {
   /* background-color:rgb(216, 237, 253); */
+  display: inline-flex;
   margin-left: 6%;
+  align-items: center;
+  
 
 }
 
@@ -37,53 +54,3 @@ h1 {
   align-items: center;
 }
 
-.cancel{
-  background-color: white;
-  color:white;
-  padding:6px;
-  border: grey;
-}
-
-.cancel:hover, .cancel:visited{
-  background-color:rgb(230, 249, 252);
-}
-/* section{
-  position: relative;
-  width:50%;
-
-}
-
-.img {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-
-.buttonstyle{
-  display: grid;
-  color: white;
-  background-color: #647DFF;
-  border-radius: 2px;
-  font-size: 15px;
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-
-}
-
-section:hover .img {
-  opacity: 0.2;
-}
-
-section:hover .buttonstyle {
-  opacity: 1;
-} */

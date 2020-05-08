@@ -3,6 +3,52 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    margin: 50px;
 
+  }
+
+  header {
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 17px;
+    /* margin-left: 35px; */
+    /* margin-right: 35px; */
+    font-family: Ozxgen, sans-serif;
+    font-size: 40px;
+  }
+  
+  h1 {
+    color:rgb(84, 170, 219);
+    font-size:32px;
+  }
+  
+  .form {
+    margin: 5%;
+  }
+  
+  
+  .lottiee {
+    /* background-color:rgb(216, 237, 253); */
+    display: inline-flex;
+    margin-left: 6%;
+    align-items: center;
+    
+  
+  }
+  
+  .space{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cancel{
+    background-color: white;
+    color:white;
+    padding:6px;
+    border: grey;
+  }
+  
+  .cancel:hover, .cancel:visited{
+    background-color:white;
   }

@@ -130,7 +130,7 @@ class App extends Component {
             <Route 
               exact path='/' 
               render={(props) => (
-                <HomePage {...props}/>
+                <HomePage {...props} user={this.state.user}/>
               )} 
             />
             <Route 
@@ -178,7 +178,11 @@ class App extends Component {
               exact path="/organization/account" 
               render={(props) => (
                 organizationService.getOrg() ?
-                  <OrganizationAccountPage {...props}/>
+                  <OrganizationAccountPage 
+                  {...props}
+                  user={this.props.user}
+                  requests={this.props.requests}
+                  />
                 :
                   <Redirect to="/login" />
               )} 
@@ -186,7 +190,7 @@ class App extends Component {
             </Switch>
           </div>
         <footer className="sticky-footer">
-          Copyright ©	2020 Sharing on the Road. All rights reserved.
+          Copyright ©	2020 Sharide. All rights reserved.
         </footer>
       </div>
     )

@@ -13,6 +13,7 @@ img {
 .card{
     display: inline-block;
 }
+
 .container2{
     /* display: block; */
     margin-top: 3%;
@@ -21,12 +22,11 @@ img {
     /* align-items: center; */
 }
 
-.homearticle{
+#homearticle{
     /* font-family: 'Lobster'; */
-
     font-size: 23px;
-    width:auto;
-    padding: 3%;
+    width: 60vw;
+    padding: 4% 10%;
     font-family: 'sans-serif';
     font-weight: 500;
 }

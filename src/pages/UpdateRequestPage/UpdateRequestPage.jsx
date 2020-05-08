@@ -34,11 +34,11 @@ class UpdateRequestPage extends Component {
 
   render() {
       return (
-          <div className="UpdateRequestPage">
-            <h1>Edit Request</h1>
-              <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
+          <div >
+            <h1 style={{marginBottom:"8%"}}>Edit Request </h1>
+              <form className="UpdateRequestPage" ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
                   <div className="form-group">
-                      <div className="col-sm-12">
+                      <div className="col-sm-13">
                           <label>Request Title</label>
                           <input
                           className="form-control"
@@ -50,7 +50,7 @@ class UpdateRequestPage extends Component {
                       </div>
                   </div>
                   <div className="form-group">
-                      <div className="col-sm-12">
+                      <div className="col-sm-13">
                           <label>Pick Up Time</label>
                           <input
                           className="form-control"
@@ -62,7 +62,7 @@ class UpdateRequestPage extends Component {
                       </div>
                   </div>
                   <div className="form-group">
-                      <div className="col-sm-12">
+                      <div className="col-sm-13">
                           <label>Pick Up Address</label>
                           <input
                           className="form-control"
@@ -74,7 +74,7 @@ class UpdateRequestPage extends Component {
                       </div>
                   </div>
                   <div className="form-group">
-                      <div className="col-sm-12">
+                      <div className="col-sm-13">
                           <label>Destination Address</label>
                           <input
                           className="form-control"
@@ -86,7 +86,7 @@ class UpdateRequestPage extends Component {
                       </div>
                   </div>
                   <div className="form-group">
-                      <div className="col-sm-12" >
+                      <div className="col-sm-13" >
                           <label htmlFor="urgbox">
                           <input
                               id="urgbox"
@@ -100,7 +100,7 @@ class UpdateRequestPage extends Component {
                       </div>
                   </div>
                 <div className="form-group">
-                  <div className="col-sm-12">
+                  <div className="col-sm-13">
                       <label>Additional Notes</label>
                       <input
                       className="form-control"
@@ -111,7 +111,7 @@ class UpdateRequestPage extends Component {
                   </div>
                 </div>
                 <div className="form-group">
-                    <div className="col-sm-12" style={{margin:'5%'}}>
+                    <div className="col-sm-13" style={{margin:'5%'}}>
                         <button
                             type="submit"
                             className="btn waves-effect waves-light"

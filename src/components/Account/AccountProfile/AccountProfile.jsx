@@ -5,7 +5,7 @@ class AccountProfile extends Component {
     render() {
         return(
             <div className='AccountProfile'>
-                AccountProfile
+                
             </div>
         )
     }

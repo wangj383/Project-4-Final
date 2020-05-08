@@ -4,8 +4,8 @@ import AccountProfile from '../../components/Account/AccountProfile/AccountProfi
 const AccountPage = (props) => {
   return(
     <div>
-    AccountPage
-      <AccountProfile />
+      <h1>{props.user.name}'s Profile</h1>
+      <AccountProfile {...props}/>
     </div>
   )
 };
