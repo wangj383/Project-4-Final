@@ -13,10 +13,18 @@ class AccountProfile extends Component {
                         <p>Employee ID: {this.props.user.employee_id}</p>
                         <p>Email: {this.props.user.email}</p>
                         <p>Phone Number: {this.props.user.phoneNum}</p>
-                        <>{this.props.user.car?
-                        <><p>Saved Car: {this.props.user.car.make} {this.props.user.car.model} {this.props.user.car.year}, White</p>
-                        <p>Max Number of Passengers: {this.props.user.car.passengerCapacity}</p></>
-                        :<></>
+                        <>{this.props.user.car.make
+                        ?
+                            <>
+                                <ul className="list-group"><p>Car Information: </p>
+                                    <li className="list-group-item">Make and Model: {this.props.user.car.make} {this.props.user.car.model}</li>
+                                    <li className="list-group-item">Plate Number: {this.props.user.car.licencePlate}</li>
+                                    <li className="list-group-item">Color: {this.props.user.car.color}</li>
+                                    <li className="list-group-item">Max number of passengers: {this.props.user.car.passengerCapacity}</li>
+                                </ul>
+                            </>
+                        :
+                            <></>
                         }
                         </>
                    

@@ -9,7 +9,7 @@ const CreateRequestPage = (props) => {
     <div className='CreateRequestPages'>
       <h1>Create a Ride Request</h1>
       <div className="inner">
-        <div className='lottie'>
+        <div className='lottieCreate'>
             <OnboardingCar />
         </div>
         <CreateForm {...props}/>

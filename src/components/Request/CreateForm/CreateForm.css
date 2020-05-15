@@ -3,3 +3,8 @@ label {
     font-size:15px;
 }
 
+.transition{
+    transition-delay: 5x;
+}
+
+

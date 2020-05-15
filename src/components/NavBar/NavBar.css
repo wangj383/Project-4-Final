@@ -5,12 +5,12 @@
 }
 .NavBar-link {
     color: white;
-    font-weight: bold;
+
 }
 
 .NavBar-link:hover, .NavBar-link:active, .NavBar-link:visited{
-    color: rgba(215, 215, 240, 0.629);
-    font-weight: bold;
+    color: rgba(25, 25, 180, 0.629);
+
 }
 
 .navtab{
@@ -19,6 +19,7 @@
     text-align:right;
     color: white;
     font-size: 18px;
+
 }
 
 li {

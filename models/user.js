@@ -7,7 +7,7 @@ const SALT_ROUNDS = 6;
 const carSchema = new Schema({
   model: {type: String, require: true},
   make: {type: String, require: true},
-  year: {type: Number, require: true},
+  licencePlate: {type: String, require: true},
   color: {type: String, require: true},
   passengerCapacity:{type: Number, require: true}
 }, {

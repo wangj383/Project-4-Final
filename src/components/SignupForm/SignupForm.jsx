@@ -199,71 +199,78 @@ class SignupForm extends Component {
                             </label>
                         </div>
                     </div>
-                    {this.state.driver
-                    ?<>
-                    <div className="form-group">
-                        <div className="col-sm-14">
-                            <label style={{fontSize:'18px', marginTop:"5%"}}>Please Enter Your Car Information:</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Make"
-                                value={this.state.car.make}
-                                name="make"
-                                onChange={this.handleCarChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-14">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Model"
-                                value={this.state.car.model}
-                                name="model"
-                                onChange={this.handleCarChange}
-                            />
-                        </div>
-                    </div>
 
-                    <div className="form-group">
-                        <div className="col-sm-14">
-                            <input
-                                type="number"
-                                className="form-control"
-                                placeholder="Year"
-                                value={this.state.car.year}
-                                name="year"
-                                onChange={this.handleCarChange}
-                            />
+                    {this.state.driver
+                    ?
+                    <div className="transition">
+                        <div className="form-group">
+                            <div className="col-sm-14">
+                                <label style={{fontSize:'18px', marginTop:"5%"}}>Please Enter Your Car Information:</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Make"
+                                    value={this.state.car.make}
+                                    name="make"
+                                    onChange={this.handleCarChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="col-sm-14">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Model"
+                                    value={this.state.car.model}
+                                    name="model"
+                                    onChange={this.handleCarChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <div className="col-sm-14">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Plate Number"
+                                    value={this.state.car.licencePlate}
+                                    name="licencePlate"
+                                    onChange={this.handleCarChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="col-sm-14">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Color"
+                                    value={this.state.car.color}
+                                    name="color"
+                                    onChange={this.handleCarChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="col-sm-14">
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="Maximum Passenger Capacity"
+                                    value={this.state.car.passengerCapacity}
+                                    name="passengerCapacity"
+                                    onChange={this.handleCarChange}
+                                    required
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div className="form-group">
-                        <div className="col-sm-14">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Color"
-                                value={this.state.car.color}
-                                name="color"
-                                onChange={this.handleCarChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <div className="col-sm-14">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Max Number of Passengers You Would Take"
-                                value={this.state.car.passengerCapacity}
-                                name="passengerCapacity"
-                                onChange={this.handleCarChange}
-                            />
-                        </div>
-                    </div>
-                    </>
                     :
                         <></>
                     }

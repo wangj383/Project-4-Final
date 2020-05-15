@@ -10,7 +10,7 @@
 }
 
 .col-sm-12{
-  width:120%;
+  width:300px;
 }
 
 
@@ -24,11 +24,12 @@
   font-size: 15px;
 }
 
-/* 
-.lottie {
+
+.lottieCreate {
   position:relative;
-  right:15%;
-} */
+  right:10%;
+  /* top: 40%; */
+}
 
 
 header {

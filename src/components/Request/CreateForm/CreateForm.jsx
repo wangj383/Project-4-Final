@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './CreateForm.css'
-import { request } from 'express';
 
 class CreateForm extends Component {
     constructor(props) {
@@ -110,32 +109,177 @@ class CreateForm extends Component {
                             />
                         </div>
                     </div>
-                <div className="form-group">
-                    <div className="col-sm-12">
-                        <label>Additional Notes</label>
-                        <input
-                        className="form-control"
-                        name="notes"
-                        value={this.state.formData.notes}
-                        onChange={this.handleChange}
-                        />
+                    <div className="form-group">
+                        <div className="col-sm-12">
+                            <label>Additional Notes</label>
+                            <input
+                            className="form-control"
+                            name="notes"
+                            value={this.state.formData.notes}
+                            onChange={this.handleChange}
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="form-group">
-                    <div className="col-sm-12" >
-                        <label>
-                        <input
-                            type="checkbox"
-                            checked={!!this.state.formData.driver}
-                            name="driver"
-                            onChange={this.handleDriverChange}
-                        />
-                        <span style={{fontSize:"16px"}}>I am the driver</span>
-                        </label>
+                    <div className="form-group">
+                        <div className="col-sm-12" >
+                            <label>
+                            <input
+                                type="checkbox"
+                                checked={!!this.state.formData.driver}
+                                name="driver"
+                                onChange={this.handleDriverChange}
+                            />
+                            <span style={{fontSize:"16px"}}>I am the driver</span>
+                            </label>
+                        </div>
                     </div>
-                </div>
-                
-                <div className="form-group" >
+                    {this.state.formData.driver
+                    ?
+                    <div className="transition">
+                        {this.props.user.car.make
+                        ?
+                        <>
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <label style={{fontSize:'18px', marginTop:"5%"}}>Please Confirm Your Car Information:</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Make"
+                                        value={this.props.user.car.make}
+                                        name="make"
+                                        onChange={this.handleCarChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Model"
+                                        value={this.props.user.car.model}
+                                        name="model"
+                                        onChange={this.handleCarChange}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        placeholder="Plate Number"
+                                        value={this.props.user.car.licencePlate}
+                                        name="licencePlate"
+                                        onChange={this.handleCarChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Color"
+                                        value={this.props.user.car.color}
+                                        name="color"
+                                        onChange={this.handleCarChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Seating Capacity"
+                                        value={this.props.user.car.passengerCapacity}
+                                        name="passengerCapacity"
+                                        onChange={this.handleCarChange}
+                                    />
+                                </div>
+                            </div>
+                        </>
+                        : 
+                        <>
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <label style={{fontSize:'18px', marginTop:"5%"}}>Please Enter Your Car Information:</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Make"
+                                        value={this.props.user.car.make}
+                                        name="make"
+                                        onChange={this.handleCarChange}
+                                        required
+                                    />
+                                    
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Model"
+                                        value={this.props.user.car.model}
+                                        name="model"
+                                        onChange={this.handleCarChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Plate Number"
+                                        value={this.props.user.car.licencePlate}
+                                        name="licencePlate"
+                                        onChange={this.handleCarChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Color"
+                                        value={this.props.user.car.color}
+                                        name="color"
+                                        onChange={this.handleCarChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-sm-12">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        placeholder="Maximum Passenger Capacity"
+                                        value={this.props.user.car.passengerCapacity}
+                                        name="passengerCapacity"
+                                        onChange={this.handleCarChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </>
+                        }
+                    </div>
+                    :
+                    <></>
+                    }
+
+                    <div className="form-group" >
                         <div className="col-sm-12" >
                             <label htmlFor="urgbox">
                             <input
@@ -163,7 +307,7 @@ class CreateForm extends Component {
                             <Link to="/requests">Cancel</Link>
                         </div>
                     </div>
-                    </form>
+                </form>
             </div>
         );
     }
