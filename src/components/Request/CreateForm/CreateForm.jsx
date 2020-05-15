@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './CreateForm.css'
+import { request } from 'express';
 
 class CreateForm extends Component {
     constructor(props) {
@@ -37,7 +38,6 @@ class CreateForm extends Component {
     handleUrgentChange = (event) =>{
         console.log(event.target.checked)
         this.setState({
-            // Have a warning for this..
             formData:{...this.state.formData, urgent: event.target.checked},
             invalidForm: !this.formRef.current.checkValidity()
         })
@@ -45,7 +45,6 @@ class CreateForm extends Component {
     handleDriverChange = (event) =>{
         console.log(event.target.checked)
         this.setState({
-            // Have a warning for this..
             formData:{ ...this.state.formData, 
                     driver: event.target.checked? this.props.user._id: undefined, 
                     rider: event.target.checked ? undefined : [this.props.user._id]
@@ -122,22 +121,20 @@ class CreateForm extends Component {
                         />
                     </div>
                 </div>
-                    <div className="form-group">
-                        <div className="col-sm-12" >
-                            <label>
-                            <input
-                                type="checkbox"
-                                checked={!!this.state.formData.driver}
-                                name="driver"
-                                onChange={this.handleDriverChange}
-                            />
-                            <span style={{fontSize:"16px"}}>I am the driver</span>
-                            </label>
-                        </div>
+                <div className="form-group">
+                    <div className="col-sm-12" >
+                        <label>
+                        <input
+                            type="checkbox"
+                            checked={!!this.state.formData.driver}
+                            name="driver"
+                            onChange={this.handleDriverChange}
+                        />
+                        <span style={{fontSize:"16px"}}>I am the driver</span>
+                        </label>
                     </div>
-
-
-
+                </div>
+                
                 <div className="form-group" >
                         <div className="col-sm-12" >
                             <label htmlFor="urgbox">
