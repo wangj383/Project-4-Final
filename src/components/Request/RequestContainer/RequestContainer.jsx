@@ -10,11 +10,11 @@ class RequestContainer extends Component {
             <div className="RequestContainer">
                 {this.props.requests.length===0 ? <LoadingPage />:this.props.requests.map(request => 
                     request.organization._id===this.props.user.organization
-                    ?<RequestPost request={request} key={request._id} user={this.props.user}/>
+                    ?<RequestPost request={request} key={request._id} user={this.props.user} handleDeleteRequest={this.props.handleDeleteRequest}/>
                     : <></>
 
                 )}
-                <div><hr />You have reached to the end of the list. If you have not found a suitable post, you can create your own request!</div>
+                <div><hr />You have reached to the end of the list. If you have not found a suitable post, you can create your own post!</div>
             </div>
         )
     }

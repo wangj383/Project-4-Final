@@ -96,7 +96,7 @@ class LoginPage extends Component {
                     {this.state.clickedOrganization?(
                     <>
                     <h1>Organization</h1>
-                    <form className="form-horizontal" onSubmit={this.orghandleSubmit} >
+                    <form className="form-horizontal" autoComplete="off"  onSubmit={this.orghandleSubmit} >
                         <div className="form-group">
                             <div className="col-sm-14">
                             <input type="email" className="form-control" placeholder="Organization Email" value={this.state.email} name="email" onChange={this.orghandleChange} />

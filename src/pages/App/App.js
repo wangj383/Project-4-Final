@@ -29,11 +29,9 @@ class App extends Component {
     }
   }
 
-
   handleAll = requests => {
     this.setState({requests})
   }
-
 
   handleLogout = () => {
     userService.logout();
@@ -86,6 +84,11 @@ class App extends Component {
     }), () => this.props.history.push('/requests'));
   }
 
+  async componentDidMount() {
+    const requests = await requestService.getAll();
+    this.setState(requests)
+    console.log(this.state.requests,'yes?')
+  }
   render() {
     return (
       <div className="App">
@@ -138,7 +141,13 @@ class App extends Component {
               exact path="/requests" 
               render={(props) => (
                 userService.getUser() ?
-                  <AllRequestsPage {...props} requests={this.state.requests} user={this.state.user} handleAll={this.handleAll} handleDeleteRequest={this.handleDeleteRequest}/>
+                  <AllRequestsPage 
+                    {...props} 
+                    requests={this.state.requests} 
+                    user={this.state.user} 
+                    handleAll={this.handleAll} 
+                    handleDeleteRequest={this.handleDeleteRequest}
+                  />
                 :
                   <Redirect to="/login" /> 
               )} 
@@ -147,7 +156,11 @@ class App extends Component {
               exact path="/request/create" 
               render={(props) => (
                 userService.getUser() ?
-                  <CreateRequestPage {...props} user={this.state.user} handleCreateRequest={this.handleCreateRequest}/>
+                  <CreateRequestPage 
+                    {...props} 
+                    user={this.state.user} 
+                    handleCreateRequest={this.handleCreateRequest}
+                  />
                 :
                   <Redirect to="/login" />
               )} 
