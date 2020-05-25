@@ -168,7 +168,7 @@ class CreateForm extends Component {
                             <div className="form-group">
                                 <div className="col-sm-12">
                                     <input
-                                        type="number"
+                                        type="text"
                                         className="form-control"
                                         placeholder="Plate Number"
                                         value={this.props.user.car.licencePlate}

@@ -3,14 +3,15 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
-header {
+.header-footer {
   text-align: center;
   padding: 5px;
   margin-bottom: 17px;
   /* margin-left: 35px; */
   /* margin-right: 35px; */
-  font-family: Ozxgen, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 40px;
 }
 
@@ -21,11 +22,13 @@ header {
 .img1{
   position: relative;
   left:8%;
+  width: 310px;
  
 }
 .img2{
   position: relative;
   left:9%;
+  width: 310px;
 }
 
 h1 {

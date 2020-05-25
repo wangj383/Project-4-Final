@@ -107,10 +107,11 @@ class SignupForm extends Component {
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Full Name"
+                                placeholder="Full Name *"
                                 value={this.state.name}
                                 name="name"
                                 onChange={this.handleChange}
+                                required
                             />
                         </div>
                     </div>
@@ -135,6 +136,7 @@ class SignupForm extends Component {
                                 value={this.state.gender}
                                 name="gender"
                                 onChange={this.handleChange}
+                                
                             />
                         </div>
                     </div>                     

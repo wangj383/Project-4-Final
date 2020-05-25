@@ -9,7 +9,6 @@ class AccountPage extends Component {
   async componentDidMount() {
     const requests = await requestService.getAll();
     this.props.handleAll(requests)
-    console.log(this.props.requests,'allrequest')
   }
 
   
