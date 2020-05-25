@@ -1,4 +1,4 @@
-.urgent{
+.urgent {
     font-size:20px;
     color: white;
     font-weight: 600;
@@ -9,7 +9,7 @@
     top: 4%;
 }
 
-p{
+p {
     font-size:19px;
     padding: 3px;
 }
@@ -18,12 +18,12 @@ p{
 .card {
     width: 50vw;
 }
-.card .card-title{
+.card .card-title {
     font-weight:600;
 }
 
 
 
-.card-action button{
+.card-action button {
     margin:10px 15px;
 }

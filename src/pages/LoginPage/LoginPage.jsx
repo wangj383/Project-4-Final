@@ -86,7 +86,7 @@ class LoginPage extends Component {
                         </div>
                         <div className="form-group" >
                             <div className="col-sm-14 text-center" style={{marginTop:"5%"}}>
-                            <button className="btn btn-default" style={{marginTop:"0"}}>Log In</button>&nbsp;&nbsp;&nbsp;
+                            <button className="btn btn-default waves-effect waves-light" style={{marginTop:"0"}}>Log In</button>&nbsp;&nbsp;&nbsp;
                             <Link to='/' >Cancel</Link>
                             </div>
                         </div>
@@ -109,7 +109,7 @@ class LoginPage extends Component {
                         </div>
                         <div className="form-group">
                             <div className="col-sm-14 text-center" style={{marginTop:"5%"}}>
-                            <button className="btn btn-default" style={{marginTop:"0"}} >Log In</button>&nbsp;&nbsp;&nbsp;
+                            <button className="btn btn-default waves-effect waves-light" style={{marginTop:"0"}} >Log In</button>&nbsp;&nbsp;&nbsp;
                             <Link to='/'>Cancel</Link>
                             </div>
                         </div>

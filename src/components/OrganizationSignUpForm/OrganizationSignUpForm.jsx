@@ -105,7 +105,7 @@ class OrganizationSignupForm extends Component {
                     </div>           
                     <div className="form-group">
                         <div className="col-sm-14 text-center space" style={{marginTop:"5%"}}>
-                            <button className="btn btn-default" style={{marginTop:"0"}} disabled={this.isFormInvalid()}>
+                            <button className="btn btn-default waves-effect waves-light" style={{marginTop:"0"}} disabled={this.isFormInvalid()}>
                                 Sign Up
                             </button>
                             &nbsp;&nbsp;

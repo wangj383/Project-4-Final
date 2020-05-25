@@ -47,15 +47,19 @@ button{
     padding: 20px;
 }
 
-button:hover{
-    background-color:rgb(162, 167, 238);
-}
 
-.NavBar-link {
+.NavBar-link2 {
     color: white;
+    background-color: transparent;
 }
 
-.NavBar-link:hover, .NavBar-link:active, .NavBar-link:visited{
-    color:white;
-    font-weight: normal;
+.NavBar-link2:hover, .NavBar-link2:active{
+    color: rgb(63, 62, 62);
 }
+
+/* 
+.NavBar-link:visited {
+    color: yellow;
+    text-decoration:underline;
+} */
+

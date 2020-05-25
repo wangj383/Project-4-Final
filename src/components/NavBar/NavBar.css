@@ -3,15 +3,7 @@
     background-color:  #3d4852;
 
 }
-.NavBar-link {
-    color: white;
 
-}
-
-.NavBar-link:hover, .NavBar-link:active, .NavBar-link:visited{
-    color: rgba(25, 25, 180, 0.629);
-
-}
 
 .navtab{
     display:inline-flex;
@@ -27,4 +19,21 @@ li {
     list-style: none;
     padding: 20px 0px 5px 32px;
     
+}
+
+
+
+.NavBar-link:visited {
+    color: white;
+}
+.NavBar-link:hover, .NavBar-link:active{
+    color: rgb(184, 184, 184);
+    text-decoration: underline;
+    
+}
+
+
+.NavBar-link {
+    color: white;
+    background-color: transparent;
 }

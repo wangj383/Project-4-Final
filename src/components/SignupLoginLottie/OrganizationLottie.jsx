@@ -25,7 +25,7 @@ class OrganizationLottie extends Component {
         />
       </div>
       <button 
-          className='buttonstyle' 
+          className='buttonstyle waves-effect waves-light' 
           onClick={this.props.showOrganization.bind(this)}>
           Organization
       </button>

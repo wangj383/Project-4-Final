@@ -25,7 +25,7 @@ class UserLottie extends Component {
           />
         </div>
         <button 
-            className='buttonstyle' 
+            className='buttonstyle waves-effect waves-light' 
             onClick={this.props.showUser.bind(this)}>
             User
         </button>

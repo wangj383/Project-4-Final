@@ -16,10 +16,10 @@ const HomePage = (props) => {
         :
           <>
           <button  
-            className='btn' 
+            className='btn waves-effect waves-light' 
             style={{backgroundColor: "#fb8c00"
             }}>
-            <Link to='/signup' className='NavBar-link'>Join Now</Link></button>
+            <Link to='/signup' className='NavBar-link2 waves-effect waves-light'>Join Now</Link></button>
           </>
         }
       </article>

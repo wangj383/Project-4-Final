@@ -6,9 +6,7 @@ class RequestContainer extends Component {
     render() {
         return (
             <div className='container'>
-                <h1>Loading...</h1>
-                
-
+                <p>Loading...</p>
             </div>
         )
     }

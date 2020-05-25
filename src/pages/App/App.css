@@ -60,3 +60,13 @@
   font-size: 14px;
 }
 
+
+/* Change defaults */
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+/* a:active {
+  background-color: transparent!important;
+} */
